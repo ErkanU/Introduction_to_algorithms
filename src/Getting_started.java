@@ -25,7 +25,12 @@ class GettingStarted {
         int B[] = {1,1,0,0,1,1};
         printArray(addBinaryInteger(A, B));
 
+        // Q2.2-2
+        System.out.println("==== Selection sort ====");
+        printArray(selectionSort(example));
+
     }
+
 
     public static int[] insertionSort(int[] A) {
         int i;
@@ -92,6 +97,23 @@ class GettingStarted {
         }
         C[C.length - 1] = remainder;
         return C;
+    }
+
+    public static int[] selectionSort(int[] A) {
+        int argmin;
+        int temp;
+        for (int i = 0; i < A.length - 1; i++) {
+            argmin = i;
+            for (int j = i + 1; j <= A.length - 1; j++) {
+                if (A[j] < A[argmin]) {
+                    argmin = j;
+                }
+            }
+            temp = A[i];
+            A[i] = A[argmin];
+            A[argmin] = temp;
+        }
+        return A;
     }
 
     public static void printArray(int[] A) {
