@@ -1,5 +1,5 @@
 /*
-Source file for the algorithm exercices of the the
+Source file for the algorithm exercises of the
 second chapter of Introduction to Algorithms
  */
 
