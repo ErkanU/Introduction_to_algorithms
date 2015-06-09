@@ -4,7 +4,6 @@ second chapter of Introduction to Algorithms
  */
 
 import java.lang.System;
-import java.util.Arrays;
 
 class GettingStarted {
 
@@ -29,8 +28,22 @@ class GettingStarted {
         System.out.println("==== Selection sort ====");
         printArray(selectionSort(example));
 
+        // 2.3-1
+        System.out.println("==== Merge sort using sentinel method ====");
+        int example_merge[] = {3, 41, 52, 26, 38, 57, 9, 49};
+        MergeSort sorter_sentinel = new MergeSort();
+        sorter_sentinel.sort(example_merge, "sentinel");
+        printArray(selectionSort(sorter_sentinel.A));
+
+        // 2-3.2
+        System.out.println("==== Merge sort using copy method ====");
+        MergeSort sorter_copied = new MergeSort();
+        sorter_copied.sort(example_merge, "copied");
+        printArray(selectionSort(sorter_copied.A));
+
     }
 
+    // ====================== INSERTION AND SELECTION SORT ====================
 
     public static int[] insertionSort(int[] A) {
         int i;
@@ -125,4 +138,5 @@ class GettingStarted {
         }
         System.out.println("]");
     }
+
 }
