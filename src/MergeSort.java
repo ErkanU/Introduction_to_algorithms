@@ -1,3 +1,7 @@
+/*
+Utility class for exercises of the second chapter
+ */
+
 import java.lang.Math;
 
 public class MergeSort {
@@ -64,7 +68,7 @@ public class MergeSort {
 
     private void mergeCopied(int p, int q, int r) {
         // System.out.println("Merge copied " + p + " " + q + " " + r);
-        int copy[] = this.A;
+        copy = this.A;
         int left = p;
         int right = q + 1;
         int k = p;
