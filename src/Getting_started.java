@@ -4,19 +4,23 @@ second chapter of Introduction to Algorithms
  */
 
 import java.lang.System;
+import java.util.HashMap;
 
 class GettingStarted {
 
     public static void main(String[] args) {
 
+        int example_insertion[] = {31,41,59,26,41,58};
+        int example_merge[] = {3, 41, 52, 26, 38, 57, 9, 49};
+        int example_sum[] = {2,7,6,4,2,1,9};
+
         // Q2.1-1
         System.out.println("==== Insertion sort ====");
-        int example[] = {31,41,59,26,41,58};
-        printArray(insertionSort(example));
+        printArray(insertionSort(example_insertion));
 
         // Q2.1-2
         System.out.println("==== Decreasing Insertion sort ====");
-        printArray(decreasingInsertionSort(example));
+        printArray(decreasingInsertionSort(example_insertion));
 
         // Q2.1-4
         System.out.println("==== Adding Binary integers ====");
@@ -26,11 +30,10 @@ class GettingStarted {
 
         // Q2.2-2
         System.out.println("==== Selection sort ====");
-        printArray(selectionSort(example));
+        printArray(selectionSort(example_insertion));
 
         // 2.3-1
         System.out.println("==== Merge sort using sentinel method ====");
-        int example_merge[] = {3, 41, 52, 26, 38, 57, 9, 49};
         MergeSort sorter_sentinel = new MergeSort();
         sorter_sentinel.sort(example_merge, "sentinel");
         printArray(selectionSort(sorter_sentinel.A));
@@ -40,6 +43,10 @@ class GettingStarted {
         MergeSort sorter_copied = new MergeSort();
         sorter_copied.sort(example_merge, "copied");
         printArray(selectionSort(sorter_copied.A));
+
+        // 2-3.7 -- we could have sorted the array and done a dichotomic search
+        System.out.println("==== Existence of two elements whose sum is x ====");
+        findElementsSum(example_sum, 3);
 
     }
 
@@ -128,6 +135,21 @@ class GettingStarted {
         }
         return A;
     }
+
+    public static void findElementsSum(int[] A, int x) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < A.length; i++) {
+            map.put(A[i], i);
+        }
+        for (int elmt : A) {
+            if (map.containsKey(x - elmt)) {
+                System.out.println("(" + elmt + ", " + A[map.get(x - elmt)] + ")");
+                break;
+            }
+        }
+    }
+
+    // ============= Utilities ================
 
     public static void printArray(int[] A) {
         System.out.print("[");
