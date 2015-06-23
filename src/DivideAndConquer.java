@@ -9,6 +9,7 @@ public class DivideAndConquer {
 
         // 4-1.5
         int example[] = {-5, 7, 8, -12, 3, -2, 9};
+        System.out.println("=============== Max sum in the array ===============");
         System.out.println(maximumSubarray(example));
     }
 
